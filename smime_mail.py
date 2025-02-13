@@ -1,4 +1,57 @@
-    def sendsmime(from_addr=mail_cfg['mail_login'],
+try:
+    import time
+    import random
+    import requests
+    import smtplib
+    import string
+    import sqlite3
+    import urllib2
+    import sys
+    import logging
+    import sys
+    import socket
+    import shutil
+    from os import sep
+    from subprocess import Popen
+    if plat == 'Linux':
+        import syslog
+        from Crypto.Cipher import AES
+        from Crypto import Random
+        from M2Crypto import SMIME
+        from M2Crypto import X509
+        from M2Crypto import BIO
+    from selenium import webdriver
+    from selenium.webdriver.common.keys import Keys
+    from subprocess import PIPE
+    from termcolor import colored
+    from hashlib import md5
+    from multiprocessing import Value
+except Exception as ex:
+    print ex
+    str_out = "%s [CRITICAL]\t\tSystem import error" % ctime()
+    logging.critical(str_out+'. '+str(ex))
+    print str_out
+    try:
+        os.system('reboot')
+    except Exception as ex:
+        str_out = "%s [CRITICAL]\t\tCant reboot. Are you root?" % ctime()
+        logging.critical(str_out+'. '+str(ex))
+        print str_out
+    sys.exit()
+    
+
+
+
+if plat == 'Linux':
+        import syslog
+        from Crypto.Cipher import AES
+        from Crypto import Random
+        from M2Crypto import SMIME
+        from M2Crypto import X509
+        from M2Crypto import BIO
+
+
+def sendsmime(from_addr=mail_cfg['mail_login'],
                   to_addrs=[mail_cfg['mbox']],
                   subject=mail_cfg['theme'],
                   msg='Test_content',
