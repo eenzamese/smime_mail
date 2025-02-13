@@ -50,6 +50,53 @@ if plat == 'Linux':
         from M2Crypto import X509
         from M2Crypto import BIO
 
+    def send_email(mail_login=mail_cfg['mail_login'],
+                   mail_password=mail_cfg['mail_password'],
+                   mailbox=mail_cfg['mbox'],
+                   theme=mail_cfg['theme'],
+                   body=mail_cfg['body']):
+        from_mbox = mail_cfg['mail_login']
+        if type(mail_cfg['mbox']) is list:
+            mlist = mail_cfg['mbox']
+        else:
+            mlist = [mail_cfg['mbox']]
+        to = mlist
+        mail_counter = c.execute('select mail_counter from config;').fetchone()
+        if mail_counter:
+            mail_counter = mail_counter[0]
+        subject = mail_cfg['theme']+str(mail_counter)+' '+str(ctime())
+        if body:
+            text = body
+        else:
+            text = mail_cfg['body']+'\n'+str(dt.now())
+        message = ('From: %s\n'
+                   'To: %s\n'
+                   'Subject: %s\n\n%s') % (from_mbox,
+                                           ", ".join(to),
+                                           subject, text)
+        try:
+            server = smtplib.SMTP(mail_cfg['smtp_server'], 587)
+            server.ehlo()
+            server.starttls()
+            server.login(mail_cfg['mail_login'],
+                         mail_cfg['mail_password'])
+            server.sendmail(from_mbox, to, message)
+            server.close()
+            str_out = '%s [OK]\t\t\tSend notification' % str(dt.now())
+            print colored(str_out, 'grey', attrs=['bold'])
+            mail_counter += 1
+            with conn:
+                statement = ('update config '
+                             'set mail_counter=('+str(mail_counter)+');')
+                c.execute(statement)
+        except Exception as ex:
+            print ex
+            str_out = '%s [FAIL]\t\tSend notification' % str(dt.now())
+            logging.warn(str(ex)+str_out)
+            print colored(str_out, 'yellow')
+        return True
+
+
 
 def sendsmime(from_addr=mail_cfg['mail_login'],
                   to_addrs=[mail_cfg['mbox']],
