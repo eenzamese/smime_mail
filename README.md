@@ -29,4 +29,4 @@ RU: Ссылка на проект: [https://github.com/eenzamese/submodule_publ
 EN: Project Link: [https://github.com/eenzamese/submodule_public](https://github.com/eenzamese/submodule_public)
 
 
-[product-screen]: scheme/simple_scheme.drawio_test.png
+[product-screen]: scheme/simple_scheme.drawio.png
