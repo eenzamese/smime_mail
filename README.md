@@ -1,33 +1,32 @@
-<div align="center"><h1 align="left">SMIME mail archive</h1></div>
+<div align="center"><h1 align="left">Submodule feature test only</h1></div>
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-RU: Архивный проект по работе с SMIME<br/>
-EN: Archive SMIME processing project.
+[![Product Name Screen Shot][product-screen]](https://example.com)
+
+Test submudule mechanic
 
 ## Installation
 
-RU: Склонируйте репозиторий<br/>
-EN: Clone the repo
+Clone the repo
    ```sh
-   git clone https://github.com/eenzamese/smime_mail
-   ```
-RU: Бибилиотека содержит сабмодули, необходимо подгрузить их самостоятельно<br/>
-EN: Don't forget to pull submodules
-   ```sh
-   git submodule update --init recursive
+   git clone https://github.com/eenzamese/submodule_public
    ```
 
 ## Usage
 
-RU: Используется в рамках разработанной логики<br/>
-EN: Only as a part of your own logic
+Nothing special, test git mechanics only
+
+<!-- LICENSE -->
 
 ## Contact
 
 RU: eenzame@yandex.ru<br/>
 EN: eenzamse@gmail.com
 
-RU: Ссылка на проект: [https://github.com/eenzamese/smime_mail](https://github.com/eenzamese/smime_mail)<br/>
-EN: Project Link: [https://github.com/eenzamese/smime_mail](https://github.com/eenzamese/smime_mail)
+RU: Ссылка на проект: [https://github.com/eenzamese/submodule_public](https://github.com/eenzamese/submodule_public).<br/>
+EN: Project Link: [https://github.com/eenzamese/submodule_public](https://github.com/eenzamese/submodule_public)
+
+
+[product-screen]: scheme/simple_scheme.drawio_test.png
