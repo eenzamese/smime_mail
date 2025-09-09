@@ -29,5 +29,5 @@ EN: Only as a part of your own logic
 RU: eenzame@yandex.ru<br/>
 EN: eenzamse@gmail.com
 
-RU: Ссылка на проект: [https://github.com/eenzamese/xau_libs](https://github.com/eenzamese/smime_mail)<br/>
-EN: Project Link: [https://github.com/eenzamese/xau_libs](https://github.com/eenzamese/smime_mail)
+RU: Ссылка на проект: [https://github.com/eenzamese/smime_mail](https://github.com/eenzamese/smime_mail)<br/>
+EN: Project Link: [https://github.com/eenzamese/smime_mail](https://github.com/eenzamese/smime_mail)
